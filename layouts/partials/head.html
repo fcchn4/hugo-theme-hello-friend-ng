@@ -8,10 +8,6 @@
 <meta name="theme-color" content="{{ .Site.Params.themeColor }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
-<!-- Meta Property -->
-<meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}" />
-<meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-
 <!-- Meta property Image -->
 {{ with $.Params.images }}{{ range first 6 . -}}
 <meta property="og:image" content="{{ . | absURL }}" />
@@ -27,6 +23,8 @@
 {{ end }}{{ end }}{{ end }}
 
 <!-- Meta Property -->
+<meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} :: {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}" />
+<meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 
 {{ block "title" . }}
